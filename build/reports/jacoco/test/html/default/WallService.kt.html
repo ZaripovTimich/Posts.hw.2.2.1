@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WallService.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Posts.hw.2.2.1</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">WallService.kt</span></div><h1>WallService.kt</h1><pre class="source lang-java linenums"><span class="nc" id="L1">class WallService {</span>
+<span class="nc" id="L2">    private var posts = emptyArray&lt;Post&gt;()</span>
+<span class="nc" id="L3">    private var uniqueId: Int = 1</span>
+
+    fun add(newPost: Post): Post {
+<span class="nc bnc" id="L6" title="All 6 branches missed.">        if (posts.isNotEmpty())</span>
+<span class="nc bnc" id="L7" title="All 2 branches missed.">            for (post in posts) {</span>
+<span class="nc bnc" id="L8" title="All 4 branches missed.">                if (post.id == newPost.id || newPost.id == 0) {</span>
+<span class="nc" id="L9">                    uniqueId++</span>
+<span class="nc" id="L10">                    newPost.id = uniqueId</span>
+                }
+            }
+        else
+<span class="nc" id="L14">            newPost.id = uniqueId</span>
+<span class="nc" id="L15">        posts += newPost</span>
+<span class="nc" id="L16">        return posts.last()</span>
+    }
+
+    fun update(currentPost: Post): Boolean {
+<span class="nc bnc" id="L20" title="All 2 branches missed.">        for ((index, post) in posts.withIndex()) {</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">            if (post.id == currentPost.id) {</span>
+<span class="nc" id="L22">                posts[index] = currentPost</span>
+<span class="nc" id="L23">                return true</span>
+            }
+        }
+<span class="nc" id="L26">        return false</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
