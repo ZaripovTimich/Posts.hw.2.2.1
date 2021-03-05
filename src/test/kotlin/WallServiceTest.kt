@@ -7,7 +7,7 @@ class WallServiceTest {
     @Test
     fun add() {
         val service = WallService()
-        val expected = 0
+        val expected = 1
         val result = service.add(TestObject.firstPost)
         service.add(TestObject.secondPost)
 
