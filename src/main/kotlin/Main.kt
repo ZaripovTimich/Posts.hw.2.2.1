@@ -53,7 +53,7 @@ fun main() {
     )
 
     val thirdPost = Post(
-        3,
+        1,
         10,
         10,
         10,
@@ -78,10 +78,10 @@ fun main() {
         postponedId = 123
     )
 
-    val wallService = WallService()
 
-    wallService.add(firstPost)
-    wallService.add(secondPost)
-    print(wallService.update(thirdPost))
+
+    WallService.add(firstPost)
+    WallService.add(secondPost)
+    print(WallService.update(thirdPost))
 
 }

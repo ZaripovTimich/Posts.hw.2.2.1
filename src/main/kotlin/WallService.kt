@@ -1,17 +1,11 @@
-class WallService {
+object WallService {
     private var posts = emptyArray<Post>()
-    private var uniqueId: Int = 1
 
     fun add(newPost: Post): Post {
-        if (posts.isNotEmpty())
-            for (post in posts) {
-                if (post.id == newPost.id || newPost.id == 0) {
-                    uniqueId++
-                    newPost.id = uniqueId
-                }
-            }
-        else
-            newPost.id = uniqueId
+        if (posts.isNotEmpty()) {
+            newPost.id = posts.lastIndex + 2
+        } else
+            newPost.id = 1
         posts += newPost
         return posts.last()
     }
