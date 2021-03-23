@@ -1,7 +1,10 @@
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.junit.FixMethodOrder
+import org.junit.runners.MethodSorters
 
+@FixMethodOrder(value = MethodSorters.NAME_ASCENDING)
 class WallServiceTest {
 
     @Test
